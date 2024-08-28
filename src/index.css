@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-50 dark:bg-dark text-slate-500 dark:text-slate-300 overflow-hidden;
+}
+
+input {
+  @apply dark:bg-input border dark:border-input text-slate-200 text-base;
+
+  ::placeholder {
+    @apply text-slate-400;
+  }
+}
+
+button {
+  @apply disabled:bg-opacity-40 text-sm;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:bg-opacity-80
+}
+
+.btn-secondary {
+  @apply bg-input hover:bg-input text-white hover:bg-opacity-80
+}
+
+.btn-secondary-outline {
+  @apply border border-input bg-transparent hover:bg-input hover:bg-opacity-10 !important;
+}
+
+.btn-success {
+  @apply bg-emerald-500 text-white hover:bg-opacity-80
+}
+
+.btn-danger {
+  @apply bg-rose-500 hover:bg-opacity-80
+}
+
+.btn-danger-outline {
+  @apply border border-rose-500 hover:bg-opacity-80
+}
+
+.select button {
+  @apply bg-input border-input text-slate-400 !important;
+}
+
+.bg-theme {
+  @apply bg-white dark:bg-default
+}
