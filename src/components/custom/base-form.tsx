@@ -59,7 +59,7 @@ export default function (props: BaseForm) {
   return (
     
     <Container className="">
-      <div className="mb-8 p-2 border-b dark:border-dark-border">
+      <div className="mb-8 p-2 border-b dark:border-input">
         <TypographyH6>{props.title}</TypographyH6>
       </div>
 

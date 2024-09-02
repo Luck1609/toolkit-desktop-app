@@ -13,6 +13,7 @@ type Handler = Omit<FileUploaderType, 'label'> & {
   triggerInput: () => void;
   dimensions: string;
   maxFiles: number;
+  btnText?: string;
 }
 
 
@@ -65,7 +66,7 @@ export default function AddImageButton(props: Handler) {
             onClick={triggerInput}
           >
             <Plus size={16} />
-            <span>Add image</span>
+            <span>{props.btnText ?? 'Add image'}</span>
           </Button>
         )}
       </div>

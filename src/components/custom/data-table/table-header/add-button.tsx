@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 
 export type AddButtonProps = {
   className?: string;
+  state?: any;
 } & ({
   show: true;
   url: string;

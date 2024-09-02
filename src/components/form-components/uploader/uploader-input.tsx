@@ -61,6 +61,7 @@ export default function UploaderInput(props: FileUploaderType) {
         name={name}
         type={type}
         maxFiles={type === "multiple" ? props.maxFiles : 1}
+        btnText={props.btnText}
       />
     </>
   )

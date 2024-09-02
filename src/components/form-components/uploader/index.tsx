@@ -8,6 +8,7 @@ export type FileUploaderType = {
   label: ReactNode;
   className?: string;
   dimensions: string;
+  btnText?: string;
 } & (Multiple | Single);
 
 type Single = {

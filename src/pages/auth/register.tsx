@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import PhoneNumberInput from "@/components/custom/phone-number-input";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { Select } from "@/components/form-components/select";
 import Input from "@/components/form-components/input";
+import PhoneNumberInput from "@/components/form-components/phone-number-input";
 
 export default function Register() {
   const method = useForm(),

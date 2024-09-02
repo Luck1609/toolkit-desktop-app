@@ -1,34 +1,33 @@
-import React from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { FormField } from "../ui/form";
+import { FormField, FormItem, FormLabel } from "../ui/form";
 import { useFormContext } from "react-hook-form";
 import { Calendar } from "../ui/calendar";
-import { stringObject } from "@/types";
 import { Button } from "../ui/button";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 
-export default function Datepicker({ name, className }: stringObject) {
+export default function Datepicker({ name, className, label, placeholder }: Record<string, string>) {
   const { control } = useFormContext();
 
   return (
     <FormField
       control={control}
       name={name}
-      render={({ field: { value, onChange } }) => {
+      render={({ field: { value, onChange }, formState: {errors} }) => {
         return (
+        <FormItem className={cn("w-full space-y-1 form-field", errors[name] ? 'error' : '')}>
+          <FormLabel className="block mt-1.5 mb-1">{label}</FormLabel>
           <Popover>
             <PopoverTrigger asChild>
               <Button
-                variant="default-outline"
                 className={cn(
-                  "w-[280px] justify-start text-left font-normal",
+                  "w-full bg-transparent border dark:bg-input h-14 justify-start text-left font-normal",
                   !value && "text-muted-foreground", className
                 )}
               >
                 <CalendarIcon className="mr-2 h-4 w-4" />
-                {value ? format(value, "PPP") : <span>Pick a value</span>}
+                {value ? format(value, "PPP") : <span>{placeholder ?? 'Pick a value'}</span>}
               </Button>
             </PopoverTrigger>
 
@@ -41,6 +40,7 @@ export default function Datepicker({ name, className }: stringObject) {
               />
             </PopoverContent>
           </Popover>
+        </FormItem>
         );
       }}
     />

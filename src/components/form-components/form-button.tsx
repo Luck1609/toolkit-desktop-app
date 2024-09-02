@@ -15,8 +15,8 @@ export default function FormButton({
 
   return (
     <button
-      className={cn("flex h-14 items-center justify-center space-x-2 bg-primary disabled:bg-opacity-50 rounded-md w-36 text-center text-white ", className)}
-      disabled={!isValid || !isDirty}
+      className={cn("flex h-14 items-center justify-center space-x-2 bg-primary rounded-md w-36 text-center text-white ", className)}
+      disabled={!isValid || !isDirty || isSubmitting}
       type={isSubmitting ? "button" : "submit"}
     >
       {!isSubmitting ? children : <Loading text={loadingText} />}

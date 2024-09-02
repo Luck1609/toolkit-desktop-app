@@ -40,7 +40,7 @@ export default function Form() {
 
   console.log("Initial values for edit form", data, id, isLoading, defaultValues)
   const panel = useMemo(() => {
-    return data?.panel ?? state.panel
+    return data?.panel ?? state?.panel
   }, [data?.panel])
   
   return (

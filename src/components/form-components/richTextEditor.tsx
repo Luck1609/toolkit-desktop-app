@@ -10,7 +10,7 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
-import "@/styles/tinymce_styles.css"
+// import "@/styles/tinymce_styles.css"
 
 const editorPlugins: string[] = [
   "advlist",

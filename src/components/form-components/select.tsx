@@ -35,11 +35,11 @@ export function Select({
             {label}
           </label>
           <SelectField onValueChange={onChange} value={value}>
-            <SelectTrigger className="h-14 !bg-input">
-              <SelectValue placeholder={placeholder} className="" />
+            <SelectTrigger className={cn("h-14 dark:!bg-input dark:!border-input")}>
+              <SelectValue placeholder={placeholder} className={""} />
             </SelectTrigger>
 
-            <SelectContent className="max-h-72 bg-white dark:!bg-input dark:text-dark-default">
+            <SelectContent className="max-h-72 bg-white dark:!bg-input dark:!border-input dark:text-white">
               <SelectGroup>
                 {options?.map(({ label: labelProp, value }: SelectType, index) => (
                   <SelectItem

@@ -21,6 +21,8 @@ import LocalityForm from "./pages/locality/form";
 import SectorForm from "./pages/sector/form";
 import Extracts from "./pages/extract";
 import ExtractForm from "./pages/extract/form";
+import StaffForm from "./pages/staff/form";
+import LetterForm from "./pages/letters/form";
 
 function App() {
 
@@ -46,30 +48,30 @@ function App() {
 
           <Route path="letters">
             <Route index element={<Letters />} />
-            <Route path=":page/:id?" element={<CommitteeForm />} />
+            <Route path=":page/:id?" element={<LetterForm />} />
             
-            <Route path="*" element={<Committee />} />
+            <Route path="*" element={<Letters />} />
           </Route>
 
           <Route path="staff">
             <Route index element={<Staff />} />
-            <Route path=":page/:id?" element={<CommitteeForm />} />
+            <Route path=":page/:id?" element={<StaffForm />} />
             
-            <Route path="*" element={<Committee />} />
+            <Route path="*" element={<Staff />} />
           </Route>
 
           <Route path="sessions">
             <Route index element={<Session />} />
             <Route path=":page/:id?" element={<CommitteeForm />} />
             
-            <Route path="*" element={<Committee />} />
+            <Route path="*" element={<Session />} />
           </Route>
 
           <Route path="sms">
             <Route index element={<Sms />} />
             <Route path=":page/:id?" element={<CommitteeForm />} />
             
-            <Route path="*" element={<Committee />} />
+            <Route path="*" element={<Sms />} />
           </Route>
 
           <Route path="applications">
