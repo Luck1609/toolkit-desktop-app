@@ -1,4 +1,4 @@
-import { Extract } from '../resource/types'
+import { Extract } from '../resource/schema'
 import FormFields from '../form/form-fields'
 import BaseForm from '@/components/custom/base-form'
 import { ExtractValidation } from '../resource/schema'
@@ -10,17 +10,25 @@ import { fetcher } from '@/lib/fetcher'
 
 const initialFormData = (data: Extract | null) => {
   return data ? {
-    name: data?.name,
-    use: data?.use,
-    plot: data?.plot,
-    contact: data?.contact,
+    firstname: data?.firstname,
+    lastname: data?.lastname,
+    landuse: data?.landuse,
+    plot_number: data?.plot_number,
+    locality_id: data?.locality_id,
+    sector_id: data?.sector_id,
+    block: data?.block,
+    phone_number: data?.phone_number,
     registration_date: data?.registration_date,
     allocation_date: data?.allocation_date,
   } : {
-    name: '',
-    use: '',
-    plot: '',
-    contact: '',
+    firstname: '',
+    lastname: '',
+    landuse: '',
+    plot_number: '',
+    locality_id: '',
+    sector_id: '',
+    block: '',
+    phone_number: '',
     registration_date: '',
     allocation_date: '',
   }
@@ -28,7 +36,7 @@ const initialFormData = (data: Extract | null) => {
 
 export default function ExtractForm() {
   const { id, page } = useParams()
-  const { data, isLoading } = useSWR(id ? `/Extract/${id}` : null, fetcher<Extract>)
+  const { data, isLoading } = useSWR(id ? `/extract/${id}` : null, fetcher<Extract>)
 
   const defaultValues = initialFormData(data ?? null)
 
@@ -39,7 +47,7 @@ export default function ExtractForm() {
       <>Loading</>
     ) : (
       <BaseForm
-        title={`${page === 'create' ? 'Add' : 'Edit'} Loclaity`}
+        title={`${page === 'create' ? 'Create' : 'Edit'} Extract`}
         initialData={defaultValues}
           validation={ExtractValidation}
         form={{

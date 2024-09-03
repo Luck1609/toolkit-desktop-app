@@ -1,7 +1,7 @@
 import { DynamicActionButtons } from '@/components/custom/data-table/action-buttons'
 import { Checkbox } from '@/components/ui/checkbox'
 import { ColumnDef } from '@tanstack/react-table'
-import { Sector } from './resource/types';
+import { Sector } from './resource/schema';
 import { useLocation } from 'react-router-dom';
 // import { Eye } from 'lucide-react';
 

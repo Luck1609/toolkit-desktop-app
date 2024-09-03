@@ -24,7 +24,7 @@ export default function AddButton(props: AddButtonProps)
       {
         props.show ? (
           <Link to={props.url}>
-            <Button className="space-x-1 px-1.5 lg:px-2">
+            <Button variant="primary" className="space-x-1 px-1.5 lg:px-2">
               <Plus size={18} />
               <span className="">{props.label}</span>
             </Button>

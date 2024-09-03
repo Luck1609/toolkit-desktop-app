@@ -30,12 +30,12 @@ export default function SMS() {
           <BaseTableHeader
             addButtonProps={{
               show: true,
-              label: 'New Session',
+              label: 'New SMS',
               url: `${pathname}/create`,
             }}
             statusFilterProps={{
               show: false,
-              component: <TypographyH5>Session Management</TypographyH5>
+              component: <TypographyH5>SMS Management</TypographyH5>
             }}
             searchComponentProps={{
               show: true,

@@ -30,8 +30,8 @@ export default function Login() {
   };
 
   return (
-    <div className="sm:max-w-sm bg-default shadow-md overflow-hidden sm:rounded-lg w-full mt-6 px-6 py-4">
-      <h4 className="text-xl font-semibold mb-5 text-center text-slate-300">Staff Login</h4>
+    <div className="sm:max-w-sm bg-white dark:bg-default shadow-md overflow-hidden sm:rounded-lg w-full mt-6 px-6 py-4">
+      <h4 className="text-xl font-semibold mb-5 text-center dark:text-slate-300">Staff Login</h4>
 
       <Form {...method}>
         <form

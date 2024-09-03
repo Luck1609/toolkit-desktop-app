@@ -8,6 +8,9 @@ import http from '@/lib/http';
 import { HttpMethods } from '@/lib/interface';
 import { toast } from '../ui/use-toast';
 import Container from './container';
+import { Button } from '../ui/button';
+import { MoveLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -33,7 +36,8 @@ export default function (props: BaseForm) {
     resolver: yupResolver(props.validation),
     defaultValues: props.initialData
   })
-  const { handleSubmit, reset, watch, formState: {errors} } = form
+  const { handleSubmit, reset } = form
+  const navigate = useNavigate()
 
   // console.log('Watching for errors', watch(), errors)
   
@@ -55,11 +59,17 @@ export default function (props: BaseForm) {
     else toast(result)
   }
 
+  const goBack = () => navigate(-1)
+
 
   return (
     
-    <Container className="">
-      <div className="mb-8 p-2 border-b dark:border-input">
+    <Container className="!py-5">
+      <div className="mb-5 pb-2 border-b dark:border-input flex items-center space-x-2">
+        <Button className="!bg-transparent hover:!bg-slate-100 dark:hover:!bg-input !p-2" onClick={goBack}>
+          <MoveLeft />
+        </Button>
+
         <TypographyH6>{props.title}</TypographyH6>
       </div>
 

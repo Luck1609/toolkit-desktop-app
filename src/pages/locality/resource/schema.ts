@@ -1,13 +1,19 @@
+import { Sector } from "@/pages/sector/resource/schema";
 import * as yup from "yup";
 
 
-export type Locality = {
-  name: string;
-  initials: string;
+
+export type FormProps = {
+  title: string;
+  initialData: Locality | null
 }
 
-export type Sector = Locality & {
-  blocks: string;
+export type Locality = {
+  id?: string;
+  name: string;
+  initials: string;
+  sectors?: Sector[]
+  blocks?: string;
 }
 
 export const LocalityValidation = yup.object().shape({

@@ -1,13 +1,20 @@
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { FormField, FormItem, FormLabel } from "../ui/form";
+import { FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { useFormContext } from "react-hook-form";
-import { Calendar } from "../ui/calendar";
-import { Button } from "../ui/button";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { format } from "date-fns";
+import { ReactNode } from "react";
+import DatePicker from 'react-date-picker';
+import 'react-date-picker/dist/DatePicker.css';
+import 'react-calendar/dist/Calendar.css';
 
-export default function Datepicker({ name, className, label, placeholder }: Record<string, string>) {
+
+interface IDatePicker {
+  name: string;
+  className?: string;
+  label: ReactNode;
+}
+
+export default function Datepicker({ name, className, label }: IDatePicker) {
   const { control } = useFormContext();
 
   return (
@@ -18,28 +25,15 @@ export default function Datepicker({ name, className, label, placeholder }: Reco
         return (
         <FormItem className={cn("w-full space-y-1 form-field", errors[name] ? 'error' : '')}>
           <FormLabel className="block mt-1.5 mb-1">{label}</FormLabel>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                className={cn(
-                  "w-full bg-transparent border dark:bg-input h-14 justify-start text-left font-normal",
-                  !value && "text-muted-foreground", className
-                )}
-              >
-                <CalendarIcon className="mr-2 h-4 w-4" />
-                {value ? format(value, "PPP") : <span>{placeholder ?? 'Pick a value'}</span>}
-              </Button>
-            </PopoverTrigger>
 
-            <PopoverContent className="w-auto p-0">
-              <Calendar
-                mode="single"
-                selected={value}
-                onSelect={onChange}
-                initialFocus
-              />
-            </PopoverContent>
-          </Popover>
+          <DatePicker
+            onChange={onChange}
+            value={value}
+            calendarIcon={<CalendarIcon />}
+            className={cn("h-14 border-slate-300 rounded dark:bg-input w-full border dark:!border-input pl-3", className)}
+            clearIcon={<X size={20} className="hover:text-danger text-slate-500 dark:text-slate-100" />}
+          />
+          <FormMessage />
         </FormItem>
         );
       }}

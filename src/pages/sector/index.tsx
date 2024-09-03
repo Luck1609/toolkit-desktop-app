@@ -4,9 +4,9 @@ import columns from './columns'
 import BaseTableHeader from '@/components/custom/data-table/table-header'
 import usePagination from '@/hooks/use-pagination'
 import { useLocation, useParams } from 'react-router-dom'
-import { Sector } from './resource/types'
+import { Sector } from './resource/schema'
 import { TypographyH5 } from '@/components/custom/typography'
-import { Locality } from '../locality/resource/types'
+import { Locality } from '../locality/resource/schema'
 
 
 export default function Sectors() {

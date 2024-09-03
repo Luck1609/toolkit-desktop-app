@@ -23,6 +23,7 @@ export const theme = {
       default: "#424769",
       primary: "#007BFF",
       input: "#50577A",
+      danger: "#E11D48"
     },
     keyframes: {
       "accordion-down": {

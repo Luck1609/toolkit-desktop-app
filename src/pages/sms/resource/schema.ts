@@ -4,8 +4,9 @@ import * as yup from "yup";
 
 export const SmsValidation = yup.object().shape({
   message: yup.string().required(),
-  contact: yup.string().required()
+  contacts: yup.mixed().required()
     .test("single", "Invalid phone number", (contacts) => {
+      console.log('Contact details', contacts)
       if (contacts) {
         if (Array.isArray(contacts) ) {
           console.log("is array", contacts)

@@ -1,8 +1,9 @@
 import { DynamicActionButtons } from '@/components/custom/data-table/action-buttons'
 import { Checkbox } from '@/components/ui/checkbox'
 import { ColumnDef } from '@tanstack/react-table'
-import { Extract } from './resource/types';
+import { Extract } from './resource/schema';
 import { useLocation } from 'react-router-dom';
+import { format } from 'date-fns';
 
 
 const columns = (): ColumnDef<Extract>[] => {
@@ -36,26 +37,29 @@ const columns = (): ColumnDef<Extract>[] => {
     {
       accessorKey: "name",
       header: "Applicant name",
+      cell: (({row: {original: { firstname, lastname }}}) => <>{firstname} {lastname}</>)
     },
     {
-      accessorKey: "phone",
+      accessorKey: "phone_number",
       header: "Phone No.",
     },
     {
-      accessorKey: "Plot No.",
       header: "Land use",
+      cell: (({row: {original: { locality, sector, block, plot_number }}}) => <>{`${locality.name}, ${sector.name}, ${block}, ${plot_number}`}</>)
     },
     {
-      accessorKey: "use",
+      accessorKey: "landuse",
       header: "Land use",
     },
     {
       accessorKey: "allocation_date",
       header: "Alloc. date",
+      cell: (({ row: { original: { allocation_date } } }) => <>{format(allocation_date, 'do MMM, yyyy')}</>)
     },
     {
       accessorKey: "registration_date",
       header: "Registration date",
+      cell: (({ row: { original: { registration_date } } }) => <>{format(registration_date, 'do MMM, yyyy')}</>)
     },
     {
       id: "actions",

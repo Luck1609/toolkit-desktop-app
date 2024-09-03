@@ -34,9 +34,9 @@ export default function Checkbox({
       control={control}
       name={name}
       render={({ field: { value: formValue = [], onChange } }) => (
-        <>
-          <FormLabel>{label}</FormLabel>
-          <FormItem className={cn("", className)}>
+        <div className="space-y-1 flex flex-col justify-between">
+          <FormLabel className="pt-1">{label}</FormLabel>
+          <FormItem className={cn("h-14", className)}>
             {options.map(({ value, label }: OptionTypes, index) => (
               <FormItem
                 key={index.toString()}
@@ -59,7 +59,7 @@ export default function Checkbox({
             ))}
             <FormMessage />
           </FormItem>
-        </>
+        </div>
       )}
     />
   );

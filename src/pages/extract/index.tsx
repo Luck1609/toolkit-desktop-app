@@ -3,23 +3,20 @@ import { DataTable } from '@/components/custom/data-table'
 import columns from './columns'
 import BaseTableHeader from '@/components/custom/data-table/table-header'
 import usePagination from '@/hooks/use-pagination'
-import { useLocation, useSearchParams } from 'react-router-dom'
-import { Extract } from './resource/types'
+import { useLocation } from 'react-router-dom'
+import { Extract } from './resource/schema'
 import { TypographyH5 } from '@/components/custom/typography'
 
 
 export default function Extracts() {
   const { pagination, setURL, updateURL, isLoading } = usePagination<Extract[]>()
   const { pathname } = useLocation()
-  const [params] = useSearchParams()
 
   // const { data } = pagination
 
   useEffect(() => {
-    setURL('/locality')
+    setURL('/extract')
   }, [])
-
-  console.log('Pagionation from committee', pagination)
   
   return (
     <DataTable
@@ -31,9 +28,8 @@ export default function Extracts() {
           <BaseTableHeader
             addButtonProps={{
               show: true,
-              label: 'New Extract',
+              label: 'Add New Extract',
               url: `${pathname}/create`,
-              state: {panel: params.get('panel')}
             }}
             statusFilterProps={{
               show: false,

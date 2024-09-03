@@ -4,7 +4,7 @@ import columns from './columns'
 import BaseTableHeader from '@/components/custom/data-table/table-header'
 import usePagination from '@/hooks/use-pagination'
 import { useLocation, useSearchParams } from 'react-router-dom'
-import { Locality } from './resource/types'
+import { Locality } from './resource/schema'
 import { TypographyH5 } from '@/components/custom/typography'
 
 

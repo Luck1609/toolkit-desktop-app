@@ -1,4 +1,4 @@
-import { Sector } from '../resource/types'
+import { Sector } from '../resource/schema'
 import FormFields from '../form/form-fields'
 import BaseForm from '@/components/custom/base-form'
 import { SectorValidation } from '../resource/schema'

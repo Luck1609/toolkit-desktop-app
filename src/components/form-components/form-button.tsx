@@ -15,7 +15,7 @@ export default function FormButton({
 
   return (
     <button
-      className={cn("flex h-14 items-center justify-center space-x-2 bg-primary rounded-md w-36 text-center text-white ", className)}
+      className={cn("flex h-14 items-center justify-center space-x-2 bg-primary rounded-md w-36 text-center text-white disabled:bg-opacity-30", className)}
       disabled={!isValid || !isDirty || isSubmitting}
       type={isSubmitting ? "button" : "submit"}
     >

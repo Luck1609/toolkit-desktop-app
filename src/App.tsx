@@ -23,6 +23,7 @@ import Extracts from "./pages/extract";
 import ExtractForm from "./pages/extract/form";
 import StaffForm from "./pages/staff/form";
 import LetterForm from "./pages/letters/form";
+import SmsForm from "./pages/sms/form";
 
 function App() {
 
@@ -69,7 +70,7 @@ function App() {
 
           <Route path="sms">
             <Route index element={<Sms />} />
-            <Route path=":page/:id?" element={<CommitteeForm />} />
+            <Route path=":page/:id?" element={<SmsForm />} />
             
             <Route path="*" element={<Sms />} />
           </Route>

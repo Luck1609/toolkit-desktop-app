@@ -34,7 +34,7 @@ export default function PhoneNumberInput({
             <>
               <Input
                 country="GH"
-                className={`pl-3 h-14 rounded ${className}`}
+                className={`pl-3 h-14 rounded-md ${className}`}
                 placeholder={placeholder}
                 disabled={disabled}
                 {...field}

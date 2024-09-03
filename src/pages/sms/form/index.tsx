@@ -11,10 +11,10 @@ import { fetcher } from '@/lib/fetcher'
 const initialFormData = (data: Sms | null) => {
   return data ? {
     message: data?.message,
-    contact: data?.contact,
+    contacts: data?.contacts,
   } : {
     message: '',
-    contact: '',
+    contacts: '',
   }
 }
 

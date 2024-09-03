@@ -7,7 +7,7 @@ body {
 }
 
 input {
-  @apply dark:bg-input border dark:border-input text-slate-200 text-base;
+  @apply dark:bg-input border dark:border-input dark:text-slate-200 text-base;
 
   ::placeholder {
     @apply text-slate-400;

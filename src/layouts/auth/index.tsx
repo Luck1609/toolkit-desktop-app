@@ -7,17 +7,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Bell, Moon, Sun } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Breadcrumb from "@/components/custom/breadcrumb";
 import Container from "@/components/custom/container";
+import { capitalize } from "lodash";
 
 export default function AuthLayout() {
   const { setTheme, theme } = useTheme();
+  const { pathname } = useLocation()
 
   const toggleTheme = (theme: "light" | "dark") => () => setTheme(theme);
+
+  const pageName = pathname.split('/')[1]
 
   return (
     <div className="min-h-screen h-full bg-gray-100 dark:bg-dark grid lg:grid-cols-12">
@@ -29,7 +33,7 @@ export default function AuthLayout() {
           <div className="">
             <div className="flex justify-between items-center h-16 px-5">
               <div className="flex">
-                <span>Dashboard</span>
+                <span>{capitalize(pageName)}</span>
               </div>
 
               <ul className="hidden sm:flex sm:items-center space-x-3">
@@ -77,12 +81,12 @@ export default function AuthLayout() {
           </div>
         </nav>
 
-        <Container className="bg-transparent">
+        {/* <Container className="bg-transparent">
           <Breadcrumb />
-        </Container>
+        </Container> */}
         
         <main>
-          <ScrollArea className="h-[90vh] mt-10">
+          <ScrollArea className="h-[90vh] pt-10">
             <Outlet />
           </ScrollArea>
         </main>

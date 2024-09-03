@@ -1,4 +1,4 @@
-import { Locality } from '../resource/types'
+import { Locality } from '../resource/schema'
 import FormFields from '../form/form-fields'
 import BaseForm from '@/components/custom/base-form'
 import { LocalityValidation } from '../resource/schema'

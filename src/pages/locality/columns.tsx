@@ -1,7 +1,7 @@
 import { DynamicActionButtons } from '@/components/custom/data-table/action-buttons'
 import { Checkbox } from '@/components/ui/checkbox'
 import { ColumnDef } from '@tanstack/react-table'
-import { Locality } from './resource/types';
+import { Locality } from './resource/schema';
 import { useLocation } from 'react-router-dom';
 import Helper from '@/helper';
 
@@ -46,13 +46,14 @@ const columns = (): ColumnDef<Locality>[] => {
     },
     {
       header: "Sectors",
-      cell: ({ row: { original: { sectors } } }) => <>{sectors.length}</>,
+      cell: ({ row: { original: { sectors } } }) => <>{sectors?.length}</>,
     },
     {
       header: "Blocks",
       cell: ({ row: { original: {sectors} } }) => (
         <>
           {
+            sectors && 
             sectors
             .reduce((sectorBlocks, { blocks }) =>
                 isJsonString(blocks)?.length + sectorBlocks,
